@@ -58,6 +58,14 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        DataSource.getInstance().fetchProfile(username, new DataSourceCallback<Profile>() {
+            @Override
+            public void onDataFetched(Profile profile) {
+                feedAdapter.setProfile(profile);
+
+            }
+        });
+
         return rootView;
     }
 
