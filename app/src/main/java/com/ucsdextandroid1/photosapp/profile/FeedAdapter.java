@@ -3,6 +3,7 @@ package com.ucsdextandroid1.photosapp.profile;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ucsdextandroid1.photosapp.data.Post;
@@ -14,7 +15,7 @@ import java.util.List;
 /**
  * Created by rjaylward on 4/12/19
  */
-public class FeedAdapter extends RecyclerView.Adapter {
+public class FeedAdapter extends RecyclerView.Adapter  {
 
     private List<FeedAdapterItem> items = new ArrayList<>();
     private List<Post> currentPosts;
@@ -84,6 +85,15 @@ public class FeedAdapter extends RecyclerView.Adapter {
     @Override
     public int getItemViewType(int position) {
         return items.get(position).getType();
+    }
+    public int getSpanSize(int position){
+        switch(getItemViewType(position)){
+            case FeedAdapterItem.TYPE_POST:
+                return 1;
+            case FeedAdapterItem.TYPE_PROFILE:
+                return 3;
+        }
+        return 0;
     }
 
     private static class FeedAdapterItem {

@@ -48,7 +48,13 @@ public class ProfileFragment extends Fragment {
 
         RecyclerView recyclerView = rootView.findViewById(R.id.fp_recycler_view);
 //        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 3);
+        gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup(){
+            public int getSpanSize(int position){
+                return feedAdapter.getSpanSize(position);
+            }
+        });
+        recyclerView.setLayoutManager(gridLayoutManager);
         feedAdapter.setGridMode(true);
         recyclerView.setAdapter(feedAdapter);
 
