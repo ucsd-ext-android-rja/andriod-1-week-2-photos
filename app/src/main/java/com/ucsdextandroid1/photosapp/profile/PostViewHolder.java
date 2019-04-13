@@ -76,7 +76,7 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
      * Displays the Post
      * @param post post
      */
-    public void bindPost(@Nullable Post post) {
+    public void bindPost(@Nullable Post post, boolean isGridMode) {
         currentPost = post;
 
         if(currentPost != null) {
@@ -102,6 +102,18 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
             imageView.setImageResource(android.R.color.white);
             userIconView.setImageResource(android.R.color.white);
         }
+        int visiblity = isGridMode ? View.GONE : View.VISIBLE;
+
+        userIconView.setVisibility(visiblity);
+        usernameView.setVisibility(visiblity);
+        locationView.setVisibility(visiblity);
+        heartIcon.setVisibility(visiblity);
+        datetimeLabel.setVisibility(visiblity);
+        captionView.setVisibility(visiblity);
+        bookmarkIcon.setVisibility(visiblity);
+        commentIcon.setVisibility(visiblity);
+        sendIcon.setVisibility(visiblity);
+        menuIcon.setVisibility(visiblity);
 
     }
 

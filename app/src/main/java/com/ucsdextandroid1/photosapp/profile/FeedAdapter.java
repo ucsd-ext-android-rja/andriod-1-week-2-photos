@@ -19,6 +19,7 @@ public class FeedAdapter extends RecyclerView.Adapter {
     private List<FeedAdapterItem> items = new ArrayList<>();
     private List<Post> currentPosts;
     private Profile currentProfile;
+    private boolean isGridMode = false;
 
     public void setPosts(List<Post> posts) {
         currentPosts = posts;
@@ -26,6 +27,10 @@ public class FeedAdapter extends RecyclerView.Adapter {
 //        items.clear();
 //        items.addAll(posts);
 //        notifyDataSetChanged();
+    }
+    public void setGridMode(boolean isGridMode){
+        this.isGridMode = isGridMode;
+        notifyDataSetChanged();
     }
     public void setItems(List<Post> posts, @Nullable Profile profile) {
         items.clear();
@@ -60,7 +65,7 @@ public class FeedAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
         if(viewHolder instanceof PostViewHolder)
-            ((PostViewHolder) viewHolder).bindPost(getPost(position));
+            ((PostViewHolder) viewHolder).bindPost(getPost(position),isGridMode);
         else if(viewHolder instanceof ProfileViewHolder)
             ((ProfileViewHolder) viewHolder).bind(getProfile(position));
     }
