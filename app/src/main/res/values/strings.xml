@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">PhotosApp</string>
+    <string name="title_home">Home</string>
+    <string name="title_search">Search</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_add_photo">Add Photo</string>
+    <string name="title_profile">Profile</string>
+    <string name="followers">Followers</string>
+    <string name="following">Following</string>
+    <string name="posts">Posts</string>
+    <string name="edit_profile">Edit Profile</string>
+
+    <plurals name="days_ago">
+        <item quantity="one">%s day ago</item>
+        <item quantity="other">%s days ago</item>
+    </plurals>
+
+    <plurals name="hours_ago">
+        <item quantity="one">%s hour ago</item>
+        <item quantity="other">%s hours ago</item>
+    </plurals>
+
+</resources>
