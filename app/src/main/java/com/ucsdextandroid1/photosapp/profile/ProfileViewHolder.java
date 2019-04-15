@@ -60,11 +60,15 @@ public class ProfileViewHolder extends RecyclerView.ViewHolder {
     public void bind(Profile profile) {
         currentProfile = profile;
 
-        Picasso.get().load(profile.getProfileImageUrl()).into(iconImage);
         nameView.setText(profile.getFullName());
         postsCountView.setText(String.valueOf(profile.getPostCount()));
         followersCountView.setText(String.valueOf(profile.getFollowersCount()));
         followingCountView.setText(String.valueOf(profile.getFollowingCount()));
+
+        Picasso.get()
+                .load(profile.getProfileImageUrl())
+                .placeholder(android.R.color.black)
+                .into(iconImage);
     }
 
     private void setUpButtons() {
