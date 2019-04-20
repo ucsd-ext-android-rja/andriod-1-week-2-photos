@@ -47,7 +47,7 @@ public class ProfileFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_profile, container, false);
 
         RecyclerView recyclerView = rootView.findViewById(R.id.fp_recycler_view);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+//      recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 3);
         gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup(){
             public int getSpanSize(int position){
